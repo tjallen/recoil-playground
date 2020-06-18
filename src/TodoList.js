@@ -9,7 +9,9 @@ const todoListState = atom({
 
 const TodoList = () => {
   const [list] = useRecoilState(todoListState);
-  const conditionalList = list.length ? list.map((item) => <li>{item.value}</li>) : "No todos!";
+  const conditionalList = list.length
+    ? list.map((item) => <li key={item.id}>{item.value}</li>)
+    : "No todos!";
   return (
     <div>
       {conditionalList}
