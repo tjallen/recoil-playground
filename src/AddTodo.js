@@ -16,11 +16,11 @@ export const AddTodo = () => {
     ]);
     setValue("");
   };
-  const handleChange = (e) => {
-    setValue(e.target.value);
+  const handleChange = ({ target: { value } }) => {
+    setValue(value);
   };
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") handleAddTodo();
+  const handleKeyDown = ({ key }) => {
+    if (key === "Enter") handleAddTodo();
   };
   return (
     <div>
