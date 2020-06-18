@@ -24,7 +24,7 @@ export const AddTodo = () => {
   };
   return (
     <div>
-      <input type="text" onChange={handleChange} onKeyDown={handleKeyDown} />
+      <input type="text" value={value} onChange={handleChange} onKeyDown={handleKeyDown} />
       <button onClick={handleAddTodo}>Add todo</button>
     </div>
   );
