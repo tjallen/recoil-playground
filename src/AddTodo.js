@@ -14,13 +14,17 @@ export const AddTodo = () => {
         complete: false,
       },
     ]);
+    setValue("");
   };
   const handleChange = (e) => {
     setValue(e.target.value);
   };
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") handleAddTodo();
+  };
   return (
     <div>
-      <input type="text" onChange={handleChange} />
+      <input type="text" onChange={handleChange} onKeyDown={handleKeyDown} />
       <button onClick={handleAddTodo}>Add todo</button>
     </div>
   );
