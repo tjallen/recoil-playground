@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { RecoilRoot, atom, selector, useRecoilState, useRecoilValue } from "recoil";
+import { RecoilRoot } from "recoil";
 import "./index.css";
-import App from "./App";
+import { TodoList } from "./TodoList";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
     <RecoilRoot>
-      <App />
+      <TodoList />
     </RecoilRoot>
   </React.StrictMode>,
   document.getElementById("root")
