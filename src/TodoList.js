@@ -2,6 +2,7 @@ import React from "react";
 import { atom, selector, useRecoilState } from "recoil";
 import { AddTodo } from "./AddTodo";
 import { TodoItem } from "./TodoItem";
+import { TodoListFilters } from "./TodoListFilters";
 
 const todoListState = atom({
   key: "todoListState",
@@ -10,7 +11,7 @@ const todoListState = atom({
 
 const TODO_LIST_FILTER_KEYS = {
   ALL: "ALL",
-  COMPLETED: "COMPLETED",
+  COMPLETE: "COMPLETE",
   ACTIVE: "ACTIVE",
 };
 
@@ -26,10 +27,10 @@ const todoListFilteredState = selector({
     const list = get(todoListState);
 
     switch (filter) {
-      case TODO_LIST_FILTER_KEYS.COMPLETED:
-        return list.filter((item) => item.completed === true);
+      case TODO_LIST_FILTER_KEYS.COMPLETE:
+        return list.filter((item) => item.isComplete === true);
       case TODO_LIST_FILTER_KEYS.ACTIVE:
-        return list.filter((item) => item.completed === false);
+        return list.filter((item) => item.isComplete === false);
       default:
         return list;
     }
@@ -51,8 +52,9 @@ const TodoList = () => {
     <div>
       {conditionalList}
       <AddTodo />
+      <TodoListFilters />
     </div>
   );
 };
 
-export { TodoList, todoListState };
+export { TodoList, todoListState, todoListFilterState, TODO_LIST_FILTER_KEYS };

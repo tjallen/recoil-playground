@@ -11,7 +11,7 @@ export const AddTodo = () => {
       {
         id: Math.random(),
         value,
-        complete: false,
+        isComplete: false,
       },
     ]);
     setValue("");

@@ -5,7 +5,7 @@ import { todoListState } from "./TodoList";
 export const TodoItem = ({ item }) => {
   const [todoList, setTodoList] = useRecoilState(todoListState);
 
-  const { id, value, complete } = item;
+  const { id, value, isComplete } = item;
   const index = todoList.findIndex((listItem) => listItem === item);
 
   const editItem = (e) => {
@@ -25,7 +25,7 @@ export const TodoItem = ({ item }) => {
   const toggleComplete = () => {
     const updatedList = replaceAtIndex(todoList, index, {
       ...item,
-      complete: !item.complete,
+      isComplete: !item.isComplete,
     });
     setTodoList(updatedList);
   };
@@ -34,7 +34,7 @@ export const TodoItem = ({ item }) => {
     <li>
       <span key={id}>{value}</span>
       <input type="text" value={value} onChange={editItem} />
-      <input type="checkbox" value={complete} onChange={toggleComplete} />
+      <input type="checkbox" value={isComplete} onChange={toggleComplete} />
       <button onClick={deleteItem}>X</button>
     </li>
   );
